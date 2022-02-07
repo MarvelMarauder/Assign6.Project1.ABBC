@@ -1,5 +1,6 @@
 ﻿using Assign6.Project1.ABBC.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -49,9 +50,9 @@ namespace Assign6.Project1.ABBC.Controllers
 
         public IActionResult ViewTasks()
         {
-            var tasks = blahContext.Response
+            var tasks = blahContext.EffectiveTasks
                .Include(x => x.Category)
-               .OrderBy(i => i.Title)
+               .OrderBy(i => i.DueDate)
                .ToList();
 
             return View(tasks);
@@ -62,7 +63,7 @@ namespace Assign6.Project1.ABBC.Controllers
         {
             ViewBag.Category = blahContext.Categories.ToList();
 
-            var task = blahContext.Response.Single(x => x.TaskID == taskid);
+            var task = blahContext.EffectiveTasks.Single(x => x.TaskId == taskid);
 
             return View("Tasks", task);
         }
@@ -79,7 +80,7 @@ namespace Assign6.Project1.ABBC.Controllers
         [HttpGet]
         public IActionResult DeleteTask(int taskid)
         {
-            var to_delete = blahContext.Response.Single(x => x.TaskID == taskid);
+            var to_delete = blahContext.EffectiveTasks.Single(x => x.TaskId == taskid);
 
             return View(to_delete);
         }
@@ -87,7 +88,7 @@ namespace Assign6.Project1.ABBC.Controllers
         [HttpPost]
         public IActionResult DeleteTask(TaskResponse tr)
         {
-            blahContext.Response.Remove(tr);
+            blahContext.EffectiveTasks.Remove(tr);
             blahContext.SaveChanges();
 
             return RedirectToAction("TaskList");
