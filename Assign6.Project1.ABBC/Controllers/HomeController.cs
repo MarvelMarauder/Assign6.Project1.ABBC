@@ -65,7 +65,7 @@ namespace Assign6.Project1.ABBC.Controllers
 
             var task = blahContext.EffectiveTasks.Single(x => x.TaskId == taskid);
 
-            return View("Tasks", task);
+            return View("ViewTasks", task);
         }
 
         [HttpPost]
@@ -74,7 +74,7 @@ namespace Assign6.Project1.ABBC.Controllers
             blahContext.Update(task);
             blahContext.SaveChanges();
 
-            return RedirectToAction("TaskList");
+            return RedirectToAction("ViewTasks");
         }
         
         [HttpGet]
@@ -91,7 +91,7 @@ namespace Assign6.Project1.ABBC.Controllers
             blahContext.EffectiveTasks.Remove(tr);
             blahContext.SaveChanges();
 
-            return RedirectToAction("TaskList");
+            return RedirectToAction("ViewTasks");
         }
      
     }
