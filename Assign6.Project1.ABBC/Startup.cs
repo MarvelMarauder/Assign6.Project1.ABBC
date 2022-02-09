@@ -57,7 +57,7 @@ namespace Assign6.Project1.ABBC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{TaskId?}");
+                    pattern: "{controller=Home}/{action=Index}/{taskid?}");
             });
         }
     }

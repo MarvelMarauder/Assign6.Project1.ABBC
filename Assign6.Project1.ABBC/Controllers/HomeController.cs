@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -63,15 +62,15 @@ namespace Assign6.Project1.ABBC.Controllers
         {
             ViewBag.Category = blahContext.Categories.ToList();
 
-            var task = blahContext.EffectiveTasks.Single(x => x.TaskId == taskid);
+            var stuff = blahContext.EffectiveTasks.Single(x => x.TaskId == taskid);
 
-            return View("ViewTasks", task);
+            return View("Index", stuff);
         }
 
         [HttpPost]
-        public IActionResult EditTask(TaskResponse task)
+        public IActionResult EditTask(TaskResponse taskStuff)
         {
-            blahContext.Update(task);
+            blahContext.Update(taskStuff);
             blahContext.SaveChanges();
 
             return RedirectToAction("ViewTasks");
