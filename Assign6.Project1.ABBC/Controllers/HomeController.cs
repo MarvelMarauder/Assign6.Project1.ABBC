@@ -75,7 +75,23 @@ namespace Assign6.Project1.ABBC.Controllers
 
             return RedirectToAction("ViewTasks");
         }
-        
+
+        [HttpPost]
+        public IActionResult CompleteTask(int taskid)
+        {
+            ViewBag.Categories = blahContext.Categories.ToList();
+
+            var stuff = blahContext.EffectiveTasks.Single(x => x.TaskId == taskid);
+
+            stuff.Completed = true;
+
+            blahContext.Update(stuff);
+            blahContext.SaveChanges();
+
+            return RedirectToAction("ViewTasks");
+        }
+
+
         [HttpGet]
         public IActionResult DeleteTask(int taskid)
         {

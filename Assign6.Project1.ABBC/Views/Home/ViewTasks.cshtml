@@ -58,11 +58,8 @@
                                 <td>@x.Task</td>
                                 <td>@x.DueDate</td>
                                 <td>
-                                    <form>
-                                        <select asp-for="@x.Completed">
-                                            <option value="false">No</option>
-                                            <option value="true">Yes</option>
-                                        </select>
+                                    <form method="post" asp-controller="Home" asp-route-taskid="@x.TaskId" asp-action="CompleteTask">
+                                        <button type="submit">Completed</button>
                                     </form>
                                 </td>
                                 <td>@x.Category.CategoryName</td>
@@ -99,11 +96,8 @@
                                 <td>@x2.Task</td>
                                 <td>@x2.DueDate</td>
                                 <td>
-                                    <form>
-                                        <select asp-for="@x2.Completed">
-                                            <option value="false">No</option>
-                                            <option value="true">Yes</option>
-                                        </select>
+                                    <form method="post" asp-controller="Home" asp-route-taskid="@x2.TaskId" asp-action="CompleteTask">
+                                        <button type="submit">Completed</button>
                                     </form>
                                 </td>
                                 <td>@x2.Category.CategoryName</td>
@@ -152,11 +146,8 @@
                                 <td>@x3.Task</td>
                                 <td>@x3.DueDate</td>
                                 <td>
-                                    <form>
-                                        <select asp-for="@x3.Completed">
-                                            <option value="false">No</option>
-                                            <option value="true">Yes</option>
-                                        </select>
+                                    <form method="post" asp-controller="Home" asp-route-taskid="@x3.TaskId" asp-action="CompleteTask">
+                                        <button type="submit">Completed</button>
                                     </form>
                                 </td>
                                 <td>@x3.Category.CategoryName</td>
@@ -192,11 +183,8 @@
                                 <td>@x4.Task</td>
                                 <td>@x4.DueDate</td>
                                 <td>
-                                    <form>
-                                        <select asp-for="@x4.Completed">
-                                            <option value="false">No</option>
-                                            <option value="true">Yes</option>
-                                        </select>
+                                    <form method="post" asp-controller="Home" asp-route-taskid="@x4.TaskId" asp-action="CompleteTask">
+                                        <button type="submit">Completed</button>
                                     </form>
                                 </td>
                                 <td>@x4.Category.CategoryName</td>
