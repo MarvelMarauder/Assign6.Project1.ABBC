@@ -14,7 +14,9 @@ namespace Assign6.Project1.ABBC.Models
         [Required]
         public string Task { get; set; }
         public string DueDate { get; set; }
+
         [Required]
+        [Range(Int32.MinValue, 4)]
         public byte Quadrant { get; set; }
         public bool Completed { get; set; }
         public int CategoryId { get; set; } // created another table with Category
