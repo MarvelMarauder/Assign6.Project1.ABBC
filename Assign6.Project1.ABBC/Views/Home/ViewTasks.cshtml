@@ -18,14 +18,24 @@
 
     <div class="row">
 
-        <div class="col-6">Urgent</div>
-        <div class="col-6">Not Urgent</div>
+        <div class="col-3"></div>
+        <div class="col-3">Urgent</div>
+        <div class="col-3"></div>
+        <div class="col-3">Not Urgent</div>
 
     </div>
 
     <div class="row">
 
-        <div class="col-1">Important</div>
+        <div class="col-1">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <h6>Important</h6>
+        </div>
         <div class="col-6">
             <h3>Quad 1</h3>
             <table class="table table-bordered table-striped" width="50%">
@@ -42,12 +52,19 @@
                 <tbody>
                     @foreach (var x in Model)
                     {
-                        @if (@x.Quadrant == 1)
+                        @if (@x.Quadrant == 1 && x.Completed == false)
                         {
                             <tr>
                                 <td>@x.Task</td>
                                 <td>@x.DueDate</td>
-                                <td>@x.Completed</td>
+                                <td>
+                                    <form>
+                                        <select asp-for="@x.Completed">
+                                            <option value="false">No</option>
+                                            <option value="true">Yes</option>
+                                        </select>
+                                    </form>
+                                </td>
                                 <td>@x.Category.CategoryName</td>
 
                                 <td><a asp-controller="Home" asp-action="EditTask" asp-route-taskid="@x.TaskId">Edit</a></td>
@@ -76,12 +93,19 @@
                 <tbody>
                     @foreach (var x2 in Model)
                     {
-                        @if (@x2.Quadrant == 2)
+                        @if (@x2.Quadrant == 2 && x2.Completed == false)
                         {
                             <tr>
                                 <td>@x2.Task</td>
                                 <td>@x2.DueDate</td>
-                                <td>@x2.Completed</td>
+                                <td>
+                                    <form>
+                                        <select asp-for="@x2.Completed">
+                                            <option value="false">No</option>
+                                            <option value="true">Yes</option>
+                                        </select>
+                                    </form>
+                                </td>
                                 <td>@x2.Category.CategoryName</td>
 
                                 <td><a asp-controller="Home" asp-action="EditTask" asp-route-taskid="@x2.TaskId">Edit</a></td>
@@ -98,8 +122,15 @@
 
     <div class="row">
 
-        <div class="col-1">Not Important</div>
-        <div class="col-6">
+        <div class="col-1">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <h6>Not Important</h6>
+        </div>        <div class="col-6">
             <h3>Quad 3</h3>
             <table class="table table-bordered table-striped">
                 <thead class="font-weight-bold">
@@ -115,12 +146,19 @@
                 <tbody>
                     @foreach (var x3 in Model)
                     {
-                        @if (@x3.Quadrant == 3)
+                        @if (@x3.Quadrant == 3 && x3.Completed == false)
                         {
                             <tr>
                                 <td>@x3.Task</td>
                                 <td>@x3.DueDate</td>
-                                <td>@x3.Completed</td>
+                                <td>
+                                    <form>
+                                        <select asp-for="@x3.Completed">
+                                            <option value="false">No</option>
+                                            <option value="true">Yes</option>
+                                        </select>
+                                    </form>
+                                </td>
                                 <td>@x3.Category.CategoryName</td>
 
                                 <td><a asp-controller="Home" asp-action="EditTask" asp-route-taskid="@x3.TaskId">Edit</a></td>
@@ -148,12 +186,19 @@
                 <tbody>
                     @foreach (var x4 in Model)
                     {
-                        @if (@x4.Quadrant == 4)
+                        @if (@x4.Quadrant == 4 && x4.Completed == false)
                         {
                             <tr>
                                 <td>@x4.Task</td>
                                 <td>@x4.DueDate</td>
-                                <td>@x4.Completed</td>
+                                <td>
+                                    <form>
+                                        <select asp-for="@x4.Completed">
+                                            <option value="false">No</option>
+                                            <option value="true">Yes</option>
+                                        </select>
+                                    </form>
+                                </td>
                                 <td>@x4.Category.CategoryName</td>
 
                                 <td><a asp-controller="Home" asp-action="EditTask" asp-route-taskid="@x4.TaskId">Edit</a></td>
