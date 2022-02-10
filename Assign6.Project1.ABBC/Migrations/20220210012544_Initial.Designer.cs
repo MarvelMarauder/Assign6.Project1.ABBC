@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assign6.Project1.ABBC.Migrations
 {
     [DbContext(typeof(TaskContext))]
-    [Migration("20220207185106_Initial")]
+    [Migration("20220210012544_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

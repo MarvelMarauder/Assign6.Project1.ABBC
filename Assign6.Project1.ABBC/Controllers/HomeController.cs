@@ -26,7 +26,7 @@ namespace Assign6.Project1.ABBC.Controllers
         [HttpGet]
         public IActionResult CreateTask()
         {
-            ViewBag.Category = blahContext.Categories.ToList();
+            ViewBag.Categories = blahContext.Categories.ToList();
             return View();
         }
 
@@ -60,11 +60,11 @@ namespace Assign6.Project1.ABBC.Controllers
         [HttpGet]
         public IActionResult EditTask(int taskid)
         {
-            ViewBag.Category = blahContext.Categories.ToList();
+            ViewBag.Categories = blahContext.Categories.ToList();
 
             var stuff = blahContext.EffectiveTasks.Single(x => x.TaskId == taskid);
 
-            return View("Index", stuff);
+            return View("CreateTask", stuff);
         }
 
         [HttpPost]
